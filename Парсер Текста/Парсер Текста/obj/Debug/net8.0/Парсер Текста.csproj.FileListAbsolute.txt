@@ -1,0 +1,17 @@
+C:\IT\Парсер Текста\Парсер Текста\bin\Debug\net8.0\Парсер Текста.exe
+C:\IT\Парсер Текста\Парсер Текста\bin\Debug\net8.0\Парсер Текста.deps.json
+C:\IT\Парсер Текста\Парсер Текста\bin\Debug\net8.0\Парсер Текста.runtimeconfig.json
+C:\IT\Парсер Текста\Парсер Текста\bin\Debug\net8.0\Парсер Текста.dll
+C:\IT\Парсер Текста\Парсер Текста\bin\Debug\net8.0\Парсер Текста.pdb
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\Парсер Текста.GeneratedMSBuildEditorConfig.editorconfig
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\Парсер Текста.AssemblyInfoInputs.cache
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\Парсер Текста.AssemblyInfo.cs
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\Парсер Текста.csproj.CoreCompileInputs.cache
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\Парсер Текста.dll
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\refint\Парсер Текста.dll
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\Парсер Текста.pdb
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\Парсер Текста.genruntimeconfig.cache
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\ref\Парсер Текста.dll
+C:\IT\Парсер Текста\Парсер Текста\bin\Debug\net8.0\nunit.framework.dll
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\Парсер Текста.csproj.AssemblyReference.cache
+C:\IT\Парсер Текста\Парсер Текста\obj\Debug\net8.0\Парсер Т.AD3C7D71.Up2Date
