@@ -3,15 +3,12 @@ using System;
 using System.Text;
 namespace TextAnalysis;
 
-
 public static class TextGeneratorTask
 {
     public static string ContinuePhrase(Dictionary<string, string> nextWords, string phraseBeginning, int wordsCount)
     {
         if (wordsCount == 0) return phraseBeginning;
-
         string[] a = phraseBeginning.Split(' ');
-
         string begin1 = a[a.Length - 1];
         if (a.Length > 1)
         {
@@ -27,13 +24,11 @@ public static class TextGeneratorTask
         }
         else if (nextWords.ContainsKey(begin1))
             phraseBeginning += " " + nextWords[begin1];
-
         return ContinuePhrase(nextWords, phraseBeginning, wordsCount - 1);
     }
 }
 public static class FrequencyAnalysisTask
 {
-
     public static Dictionary<string, string> GetMostFrequentNextWords(List<List<string>> text)
     {
         var result = new Dictionary<string, string>();
@@ -41,7 +36,6 @@ public static class FrequencyAnalysisTask
         var dictionary2 = ThreeGramm(text);
         DictionaryAdd(dictionary,result);
         DictionaryAdd(dictionary2,result);
-
         return result;
     }
     public static Dictionary<string,string> DictionaryAdd (Dictionary<string, Dictionary<string, int>> dictionary,Dictionary<string,string>result)
@@ -126,7 +120,6 @@ public static class FrequencyAnalysisTask
                     number = item.Value;
                     s = item.Key;
                 }
-
                 else if (item.Value == number)
                 {
                     if (string.CompareOrdinal(s, item.Key) > 0)
@@ -149,8 +142,6 @@ public static class SentencesParserTask
         var res = new List<string>();
         var sentenseList = text.ToLower()
                         .Split(new[] { ".", "!", "?", ";", ":", "(", ")" }, StringSplitOptions.RemoveEmptyEntries).ToList();
-
-
         foreach (var sentense in sentenseList) 
         {
             if (!sentense.Any(s => Char.IsLetter(s)))
@@ -160,8 +151,7 @@ public static class SentencesParserTask
         foreach (var sentense in res)
         {
             var res1 = Parse(sentense);
-            result.Add(res1);
-                
+            result.Add(res1);       
         }
         return result;
     }
@@ -172,82 +162,6 @@ public static class SentencesParserTask
 '2', '3', '4', '5', '6', '7', '8', '9', '=',
 '\t', '\n', '\r', ',', '…', '“',
 '”', '<', '>', '‘', '*', ' ', '/','\u00A0'}, StringSplitOptions.RemoveEmptyEntries).ToList();
-
         return list;
-    }
-}
-/* .Select(x => x.Split(new[] { " ", " ", ",", "/", "—", "“", "”", "‘", "…", "^", "#", "$", "-", "+", "1", "=", "\t", "\n", "\r", "\"" }, StringSplitOptions.RemoveEmptyEntries).ToList())
-                        .ToList();*/
-class Program
-{
-    static void Main()
-    {
-        
-        var text = "a b c d. b c d. e b c a d.f";
-       
-        var dictionary2 = new Dictionary<string,int>();
-        var res = SentencesParserTask.ParseSentences(text);
-        var nextWords = FrequencyAnalysisTask.GetMostFrequentNextWords(res);
-        foreach (var sentence in nextWords) Console.WriteLine(sentence);
-
-
-        var builder = new StringBuilder();
-        
-        var dictionary = new Dictionary<string, Dictionary<string, int>>();
-        
-        string phraseBeginning = "a";
-        string[] arr = phraseBeginning.Split(' ');
-        if (arr.Length > 1)
-        {
-            string begin = string.Join(" ", arr[arr.Length - 2], arr[arr.Length - 1]);
-        }
-        builder.Append(phraseBeginning);
-        string Method ( string sentence, int count)
-        {
-            string r = builder.ToString();
-            if (count == 0) return r;
-
-            string[] a = sentence.Split(' ');
-
-            string begin1 = a[a.Length - 1];
-            if (a.Length > 1)
-            {
-                string begin = string.Join(" ", a[a.Length - 2], a[a.Length - 1]);
-
-
-                if (nextWords.ContainsKey(begin))
-                {
-                    builder.Append(" " + nextWords[begin]);
-                } 
-            }
-            
-                 else if (nextWords.ContainsKey(begin1))
-                {
-                    builder.Append(" " + nextWords[begin1]);
-                }
-            
-                
-            
-            
-            
-            r =  builder.ToString();
-            return Method(r, count-1);
-            
-        }
-        Console.WriteLine(Method(phraseBeginning,2));
-
-        var mostFrequentNextWords = new Dictionary<string, string>
-        {
-            {"x", "y"},
-            {"y", "z"},
-            {"z", "x"},
-            {"a", "b" }
-        };
-
-
-        Console.WriteLine(TextGeneratorTask.ContinuePhrase(mostFrequentNextWords, "x", 2));
-
-      
-
     }
 }
