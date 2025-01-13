@@ -13,6 +13,11 @@ namespace Форма_регистрации_и_БД
 {
     public partial class FormRecords : Form
     {
+     public FormRecords(DateTime date)
+ {
+     Params.SelectedDate = date;
+        InitializeComponent();   
+ }
         public FormRecords()
         {
             InitializeComponent();
@@ -50,7 +55,8 @@ namespace Форма_регистрации_и_БД
 
                 DataGridViewCell client = new DataGridViewTextBoxCell();
 
-                BDget(Params.DaySchedule, time, client);
+                BDget(Params.SelectedDate.ToString("yyyy-MM-dd"), time, client);
+                //BDget(Params.DaySchedule, time, client);
                 row.Cells.Add(client);
                 RecordPanel.Rows.Add(row);
             }
@@ -66,5 +72,24 @@ namespace Форма_регистрации_и_БД
         {
             this.Close();
         }
+         private void backClick(object sender, EventArgs e)
+ {
+     
+     this.Close();
+     var date = Params.SelectedDate.AddDays(-1);
+     label1.Text = date.ToString();
+     FormRecords fm = new FormRecords(date);
+     fm.Show();
+     
+ }
+
+ private void nextClick(object sender, EventArgs e)
+ {
+     this.Close();
+     var date = Params.SelectedDate.AddDays(1);
+     label1.Text = date.ToString();
+     FormRecords fm = new FormRecords(date);
+     fm.Show();
+ }
     }
 }
