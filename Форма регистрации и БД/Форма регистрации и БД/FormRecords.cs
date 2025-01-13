@@ -74,22 +74,26 @@ namespace Форма_регистрации_и_БД
         }
          private void backClick(object sender, EventArgs e)
  {
-     
-     this.Close();
-     var date = Params.SelectedDate.AddDays(-1);
-     label1.Text = date.ToString();
-     FormRecords fm = new FormRecords(date);
-     fm.Show();
-     
+     Params.SelectedDate = Params.SelectedDate.AddDays(-1);
+ label1.Text = Params.SelectedDate.ToString();
+ 
+for (int i = 0; i < 24; i++) 
+ {
+     RecordPanel.Rows[i].Cells[1].Value = null;
+     BDget(Params.SelectedDate.ToString("yyyy-MM-dd"), RecordPanel.Rows[i].Cells[0], RecordPanel.Rows[i].Cells[1]);
+ }
  }
 
  private void nextClick(object sender, EventArgs e)
  {
-     this.Close();
-     var date = Params.SelectedDate.AddDays(1);
-     label1.Text = date.ToString();
-     FormRecords fm = new FormRecords(date);
-     fm.Show();
+     Params.SelectedDate = Params.SelectedDate.AddDays(1);
+ label1.Text = Params.SelectedDate.ToString();
+ 
+for (int i = 0; i < 24; i++) 
+ {
+     RecordPanel.Rows[i].Cells[1].Value = null;
+     BDget(Params.SelectedDate.ToString("yyyy-MM-dd"), RecordPanel.Rows[i].Cells[0], RecordPanel.Rows[i].Cells[1]);
+ }
  }
     }
 }
