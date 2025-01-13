@@ -8,7 +8,8 @@ namespace Форма_регистрации_и_БД
 {
     public static class Params
     {
-        public static string DaySchedule;
+       // public static string DaySchedule;
+        public static DateTime SelectedDate;
     }
     internal static class Program
     {
